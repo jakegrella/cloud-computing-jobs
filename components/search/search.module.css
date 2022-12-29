@@ -11,12 +11,25 @@
   margin-right: 0.5rem;
   height: 100%;
   position: relative;
+  /* border: 1px solid red; */
 }
 
 .search_bar input {
   z-index: 2;
   position: relative;
   color: var(--white);
+}
+
+.search_bar_button {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.85rem;
+  z-index: 3;
+}
+
+.search_bar_button:hover {
+  cursor: pointer;
+  color: var(--primary);
 }
 
 .search_bar .dropdown {

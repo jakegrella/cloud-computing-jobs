@@ -3,6 +3,7 @@ import { Button, Card, Input } from "../../components";
 import { useStore } from ".././../store";
 import { useWindowDimensions } from "../../utils/hooks";
 import styles from "./search.module.css";
+import { MagnifyingGlass } from "phosphor-react";
 
 function ButtonGroup() {
   const homePageView = useStore((state) => state.homePageView);
@@ -23,6 +24,8 @@ function ButtonGroup() {
     </div>
   );
 }
+
+async function getSearchResults(location: string) {}
 
 export function Search({ className = undefined, placeholder = "Search" }) {
   const { width } = useWindowDimensions();
@@ -59,41 +62,39 @@ export function Search({ className = undefined, placeholder = "Search" }) {
     setSearchInputValue(x);
   }
 
+  async function handleSearch() {
+    console.log("click");
+    // TODO: search
+    const searchResults = await getSearchResults(searchInputValue);
+    console.log("searchResults", searchResults);
+  }
+
   return (
     <div className={styles.search}>
-      {dropdownVisible ? (
-        <div className={`${styles.search_bar} ${className ?? ""}`}>
-          <Input
-            type="text"
-            name="search"
-            label={placeholder}
-            value={searchInputValue}
-            forwardRef={searchInput}
-            onChange={handleSearchInputValueChange}
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-            autoComplete="off"
-          />
+      <div className={`${styles.search_bar} ${className ?? ""}`}>
+        <Input
+          type="text"
+          name="search"
+          label={placeholder}
+          value={searchInputValue}
+          forwardRef={searchInput}
+          onChange={handleSearchInputValueChange}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          // autoComplete="off"
+        />
+        <MagnifyingGlass
+          className={styles.search_bar_button}
+          onClick={handleSearch}
+        />
+        {/* {dropdownVisible && (
           <Card className={styles.dropdown}>
             <Button onClick={handleDropdownFilterClick}>city:</Button>
             <Button onClick={handleDropdownFilterClick}>company:</Button>
             <Button onClick={handleDropdownFilterClick}>job title:</Button>
           </Card>
-        </div>
-      ) : (
-        <div className={`${styles.search_bar} ${className ?? ""}`}>
-          <Input
-            type="text"
-            name="search"
-            label={placeholder}
-            value={searchInputValue}
-            forwardRef={searchInput}
-            onChange={handleSearchInputValueChange}
-            onFocus={handleInputFocus}
-            onBlur={handleInputBlur}
-          />
-        </div>
-      )}
+        )} */}
+      </div>
       {width < 768 && <ButtonGroup />}
     </div>
   );

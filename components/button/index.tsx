@@ -9,6 +9,7 @@ interface IButtonProps
 
 export function Button({
   children,
+  className = undefined,
   disabled = false,
   onClick = undefined,
   type = "button",
@@ -17,7 +18,7 @@ export function Button({
     <button
       type={type}
       disabled={disabled}
-      className={`${styles.button}`}
+      className={`${styles.button} ${className && className}`}
       onClick={onClick}
     >
       {children}
