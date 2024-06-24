@@ -1,6 +1,7 @@
 import React from 'react'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config';
+import { Button } from '@/components/ui/button';
 const payload = await getPayloadHMR({ config: configPromise })
 
 const Page = async () => {
@@ -10,13 +11,14 @@ const Page = async () => {
     });
 
   return (
-      <main>
+      <main className='bg-red-500'>
             {jobs.map((job) => (
                 <div key={job.id}>
-                    <p>{job.title}</p>
+                    <p className='text-3xl font-bold underline'>{job.title}</p>
                     {typeof job.company !== 'number' && job.company.name}
                 </div>
             ))}
+            <Button>Click me</Button>
       </main>
   )
 }

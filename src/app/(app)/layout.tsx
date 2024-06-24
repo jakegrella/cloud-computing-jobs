@@ -1,8 +1,9 @@
 import React from 'react'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter as FontSans } from 'next/font/google'
+// import { cn } from '@/lib/utils'
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ['latin'],
   display: 'swap',
 })
@@ -10,7 +11,7 @@ const inter = Inter({
 /* Our app sits here to not cause any conflicts with payload's root layout  */
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html className={inter.className}>
+    <html>
       <body>{children}</body>
     </html>
   )
