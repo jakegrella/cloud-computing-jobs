@@ -1,7 +1,8 @@
-import type { Access } from 'payload/config'
-import type { User } from '@repo/ccj-types';
+import { User } from "@/payload-types"
+import { Access } from "payload"
 
-export const isAdminOrSelf: Access<any, User> = ({ req: { user } }) => {
+// export const isAdminOrSelf: Access<any, User> = ({ req: { user } }) => {
+export const isAdminOrSelf: Access<User> = ({ req: { user } }) => {
 	// Need to be logged in
 	if (user) {
 		// If user has role of 'admin'
