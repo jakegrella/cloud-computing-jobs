@@ -1,6 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
-import { s3Storage } from '@payloadcms/storage-s3'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -21,18 +21,12 @@ export default buildConfig({
   },
   collections: [Companies, Jobs, Locations, Logos, Users],
   plugins: [
-    s3Storage({
+    vercelBlobStorage({
+      enabled: true,
       collections: {
         [Logos.slug]: true
       },
-      bucket: process.env.S3_BUCKET_URI || '',
-      config: {
-        credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
-        },
-        region: process.env.S3_REGION,
-      }
+      token: process.env.BLOB_READ_WRITE_TOKEN || ''
     })
   ],
   db: postgresAdapter({

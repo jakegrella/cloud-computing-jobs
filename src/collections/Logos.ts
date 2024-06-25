@@ -10,7 +10,6 @@ const Logos: CollectionConfig = {
         delete: isAdmin,
     },
     upload: {
-        // staticURL: '/logos',
         staticDir: 'logos',
         mimeTypes: ['image/*'],
         imageSizes: [

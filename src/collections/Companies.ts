@@ -18,7 +18,7 @@ const Companies: CollectionConfig = {
         {
             name: 'logo',
             type: 'upload',
-            relationTo: 'logos',
+            relationTo: 'logos'
         },
         {
             name: 'description',

@@ -19,7 +19,7 @@
     "@payloadcms/next": "beta",
     "@payloadcms/plugin-cloud": "beta",
     "@payloadcms/richtext-lexical": "beta",
-    "@payloadcms/storage-s3": "beta",
+    "@payloadcms/storage-vercel-blob": "beta",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
