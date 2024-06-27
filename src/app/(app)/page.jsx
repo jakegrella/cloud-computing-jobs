@@ -2,7 +2,7 @@ import React from 'react'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import configPromise from '@payload-config';
 import Image from 'next/image';
-import { Card } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
 const payload = await getPayloadHMR({ config: configPromise })
 
@@ -19,19 +19,22 @@ export default async function Page() {
             <div className='flex flex-col w-full gap-4'>
                 {jobs.map((job) => (
                     <a key={job.id} href={job.externalPostingLink} target='_blank' >
-                        <Card className='flex flex-nowrap gap-2'>
-                            {/* co logo */}
-                            <Image
-                                src={job.company.logo.sizes.thumbnail.url}
-                                width={job.company.logo.sizes.thumbnail.width}
-                                height={job.company.logo.sizes.thumbnail.height}
-                                alt={job.company.logo.altText}
-                            />
-                            {/* job info */}
-                            <div className='flex flex-col'>
-                                <p className='text-3xl font-bold underline'>{job.title}</p>
-                                {typeof job.company !== 'number' && job.company.name}
-                            </div>
+                        <Card className='pt-6 hover:bg-accent hover:text-accent-foreground'>
+                            <CardContent className='flex flex-nowrap gap-2'>
+                                <div>
+                                    <Image
+                                        src={job.company.logo.sizes.thumbnail.url}
+                                        width={job.company.logo.sizes.thumbnail.width}
+                                        height={job.company.logo.sizes.thumbnail.height}
+                                        alt={job.company.logo.altText}
+                                    />
+                                </div>
+                                <div className='flex flex-col'>
+                                    <p className='text-3xl font-bold underline'>{job.title}</p>
+                                    {typeof job.company !== 'number' && job.company.name}
+                                    flex flex-col
+                                </div>
+                            </CardContent>
                         </Card>
                     </a>
                 ))}

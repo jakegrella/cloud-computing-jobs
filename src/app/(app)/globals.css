@@ -31,6 +31,10 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
+    
+    --radius: 0.5rem;
+
+    /* OLD LIGHT VERSION VALUES */
     /* --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
 
