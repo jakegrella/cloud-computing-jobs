@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import './globals.css'
 import logo from '../../../public/ccj-logo.svg'
-// import { cn } from '@/lib/utils'
+// import { cn } from '@/lib/cn'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -16,7 +16,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html>
       <body className='h-screen px-4 py-8'>
-        <header className='flex flex-nowrap justify-between items-center mb-8'>
+        <header className='flex flex-nowrap justify-between items-start mb-8'>
           <Link href='/'>
             <div className='flex flex-nowrap gap-2'>
               <Image src={logo} alt='Cloud Computing Jobs logo' />

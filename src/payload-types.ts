@@ -103,6 +103,7 @@ export interface Job {
   };
   status: 'draft' | 'published';
   locations?: (number | Location)[] | null;
+  publishedDate?: string | null;
   updatedAt: string;
   createdAt: string;
 }

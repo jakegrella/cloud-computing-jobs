@@ -52,6 +52,10 @@ const Jobs: CollectionConfig = {
             type: 'relationship',
             relationTo: 'locations',
             hasMany: true
+        },
+        {
+            name: 'publishedDate',
+            type: 'date'
         }
     ]
 }
